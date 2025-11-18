@@ -1,0 +1,9 @@
+{
+  "welcome": "Bem-vindo ao DuoStats",
+  "description": "Acompanhe suas estatísticas do Duolingo",
+  "counter": {
+    "button": "contador é {{count}}",
+    "instruction": "Edite src/App.tsx e salve para testar HMR"
+  },
+  "footer": "Clique nos logos do Vite e React para aprender mais"
+}
