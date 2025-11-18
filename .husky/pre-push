@@ -1,0 +1,15 @@
+#!/bin/sh
+
+echo "🔍 Verificando tipos..."
+bun run type-check || {
+  echo "❌ Erro de tipos encontrado!"
+  exit 1
+}
+
+echo "🧹 Verificando lint..."
+bun run lint || {
+  echo "❌ Erro de lint encontrado!"
+  exit 1
+}
+
+echo "✅ Todas as verificações passaram!"
