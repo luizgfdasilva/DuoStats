@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/i18n/config.ts","./src/i18n/react-i18next.d.ts","./src/providers/themeprovider.tsx","./src/styles/globalstyles.ts","./src/styles/styled.d.ts","./src/styles/theme.ts","./vite.config.ts"],"version":"5.9.3"}
