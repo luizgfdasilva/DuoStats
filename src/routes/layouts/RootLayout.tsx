@@ -6,7 +6,7 @@ import * as S from './styles'
  * Root layout component
  * Wraps all pages with common UI elements like navigation
  */
-export function RootLayout() {
+export const RootLayout = () => {
   return (
     <S.Container>
       <Navigation />

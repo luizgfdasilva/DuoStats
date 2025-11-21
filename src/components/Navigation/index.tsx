@@ -1,7 +1,7 @@
 import { ROUTES } from '../../routes/paths'
 import * as S from './styles'
 
-export function Navigation() {
+export const Navigation = () => {
   return (
     <S.Nav>
       <S.Container>

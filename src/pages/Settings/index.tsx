@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import * as S from './styles'
 
-export function Settings() {
+export const Settings = () => {
   const { i18n } = useTranslation()
 
   const changeLanguage = (lng: string) => {

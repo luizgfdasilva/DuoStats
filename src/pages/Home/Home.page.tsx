@@ -2,14 +2,24 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import reactLogo from '../../assets/react.svg'
 import viteLogo from '/vite.svg'
-import * as S from './styles'
+import * as S from './Home.styles'
+import { QueryAccountByRiotId } from '../../features/accounts'
 
-export function Home() {
+export const Home = () => {
   const [count, setCount] = useState(0)
   const { t, i18n } = useTranslation()
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng)
+  }
+
+  const handleGetUuid = async () => {
+    try {
+      const account = await QueryAccountByRiotId('imEDGE', '666')
+      console.log('Account data:', account)
+    } catch (error) {
+      console.error('Failed to fetch account:', error)
+    }
   }
 
   return (
@@ -36,6 +46,7 @@ export function Home() {
         <button onClick={() => changeLanguage('pt')}>
           Português
         </button>
+        <button onClick={handleGetUuid}>teste de api riot</button>
       </S.LanguageButtons>
 
       <S.Card>
