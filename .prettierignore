@@ -1,0 +1,12 @@
+node_modules
+dist
+build
+coverage
+.next
+.nuxt
+.vscode
+.idea
+*.log
+package-lock.json
+bun.lockb
+tsconfig.tsbuildinfo

@@ -1,1 +1,11 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Run lint-staged (prettier and eslint)
 bun lint-staged
+
+# Run type check if there are any .ts or .tsx files staged
+if git diff --cached --name-only | grep -E '\.(ts|tsx)$' > /dev/null; then
+  echo "Running type check..."
+  bun run type-check
+fi

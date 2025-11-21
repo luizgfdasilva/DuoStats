@@ -7,12 +7,12 @@ import * as S from './styles'
  * Wraps all pages with common UI elements like navigation
  */
 export const RootLayout = () => {
-  return (
-    <S.Container>
-      <Navigation />
-      <S.Main>
-        <Outlet />
-      </S.Main>
-    </S.Container>
-  )
+    return (
+        <S.Container>
+            <Navigation />
+            <S.Main>
+                <Outlet />
+            </S.Main>
+        </S.Container>
+    )
 }

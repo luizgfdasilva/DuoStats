@@ -23,19 +23,20 @@ Existem **duas formas** de usar esta feature:
 Use esta abordagem quando você quer controle total sobre a chamada, similar ao padrão do seu exemplo.
 
 ```tsx
-import { QueryAccountByRiotId } from '@/features/accounts';
+import { QueryAccountByRiotId } from '@/features/accounts'
 
 async function handleGetAccount() {
-  try {
-    const account = await QueryAccountByRiotId('imEDGE', '666');
-    console.log(account.puuid);
-  } catch (error) {
-    console.error('Failed to fetch account:', error);
-  }
+    try {
+        const account = await QueryAccountByRiotId('imEDGE', '666')
+        console.log(account.puuid)
+    } catch (error) {
+        console.error('Failed to fetch account:', error)
+    }
 }
 ```
 
 **Vantagens:**
+
 - ✅ Controle total sobre a chamada
 - ✅ Pode ser usado fora de componentes React
 - ✅ Útil para chamadas imperativas
@@ -46,28 +47,29 @@ async function handleGetAccount() {
 Use esta abordagem quando você precisa de reatividade e estados gerenciados automaticamente.
 
 ```tsx
-import { useGetAccountByRiotId } from '@/features/accounts';
+import { useGetAccountByRiotId } from '@/features/accounts'
 
 function MyComponent() {
-  const { fetchAccountByRiotId, account, loading, error } = useGetAccountByRiotId();
+    const { fetchAccountByRiotId, account, loading, error } = useGetAccountByRiotId()
 
-  const handleSearch = async () => {
-    await fetchAccountByRiotId('PlayerName', 'BR1');
-  };
+    const handleSearch = async () => {
+        await fetchAccountByRiotId('PlayerName', 'BR1')
+    }
 
-  return (
-    <div>
-      <button onClick={handleSearch} disabled={loading}>
-        Buscar
-      </button>
-      {account && <p>PUUID: {account.puuid}</p>}
-      {error && <p>Erro: {error.message}</p>}
-    </div>
-  );
+    return (
+        <div>
+            <button onClick={handleSearch} disabled={loading}>
+                Buscar
+            </button>
+            {account && <p>PUUID: {account.puuid}</p>}
+            {error && <p>Erro: {error.message}</p>}
+        </div>
+    )
 }
 ```
 
 **Vantagens:**
+
 - ✅ Estados (loading, error) gerenciados automaticamente
 - ✅ Reatividade do React
 - ✅ Ideal para UIs complexas
@@ -78,11 +80,11 @@ A query `GET_ACCOUNT_BY_RIOT_ID` está disponível em `graphQL/queries.ts`:
 
 ```graphql
 query GetAccountByRiotId($gameName: String!, $tagLine: String!) {
-  getAccountByRiotId(gameName: $gameName, tagLine: $tagLine) {
-    puuid
-    gameName
-    tagLine
-  }
+    getAccountByRiotId(gameName: $gameName, tagLine: $tagLine) {
+        puuid
+        gameName
+        tagLine
+    }
 }
 ```
 
@@ -90,18 +92,20 @@ query GetAccountByRiotId($gameName: String!, $tagLine: String!) {
 
 ```typescript
 interface RiotAccount {
-  puuid: string;
-  gameName: string;
-  tagLine: string;
+    puuid: string
+    gameName: string
+    tagLine: string
 }
 ```
 
 ## Endpoint da API Riot
 
 Esta feature prepara a chamada para o endpoint:
+
 - `/riot/account/v1/accounts/by-riot-id/{gameName}/{tagLine}`
 
 **IMPORTANTE**: A chamada não será executada até que você:
+
 1. Configure um servidor GraphQL que faça o proxy para a API da Riot
 2. Configure a variável de ambiente `VITE_GRAPHQL_URI`
 3. Use o hook em um componente e chame `fetchAccountByRiotId()`

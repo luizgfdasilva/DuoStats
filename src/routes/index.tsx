@@ -9,23 +9,23 @@ import { NotFound } from '../pages/NotFound'
  * Using createBrowserRouter for better data loading and error handling
  */
 const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <RootLayout />,
-    errorElement: <NotFound />,
-    children: [
-      {
-        index: true,
-        element: <Home />,
-      },
-      {
-        path: 'settings',
-        element: <Settings />,
-      },
-    ],
-  },
+    {
+        path: '/',
+        element: <RootLayout />,
+        errorElement: <NotFound />,
+        children: [
+            {
+                index: true,
+                element: <Home />,
+            },
+            {
+                path: 'settings',
+                element: <Settings />,
+            },
+        ],
+    },
 ])
 
 export const AppRoutes = () => {
-  return <RouterProvider router={router} />
+    return <RouterProvider router={router} />
 }

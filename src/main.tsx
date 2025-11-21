@@ -7,11 +7,11 @@ import { ThemeProvider } from './providers/ThemeProvider'
 import { ApolloProvider } from './providers/ApolloProvider'
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <ApolloProvider>
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
-    </ApolloProvider>
-  </StrictMode>,
+    <StrictMode>
+        <ApolloProvider>
+            <ThemeProvider>
+                <App />
+            </ThemeProvider>
+        </ApolloProvider>
+    </StrictMode>,
 )
