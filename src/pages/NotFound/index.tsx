@@ -1,7 +1,7 @@
 import { ROUTES } from '../../routes/paths'
 import * as S from './styles'
 
-export function NotFound() {
+export const NotFound = () => {
   return (
     <S.Container>
       <S.ErrorCode>404</S.ErrorCode>

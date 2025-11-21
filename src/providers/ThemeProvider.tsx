@@ -7,7 +7,7 @@ interface ThemeProviderProps {
   children: ReactNode;
 }
 
-export function ThemeProvider({ children }: ThemeProviderProps) {
+export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   return (
     <StyledThemeProvider theme={theme}>
       <GlobalStyles />
